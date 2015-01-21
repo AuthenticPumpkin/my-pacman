@@ -24,6 +24,7 @@ class PacMan(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         image_to_load = os.path.join('Data', 'Images', name)
         self.image = pygame.image.load(image_to_load).convert()
+        self.image.set_colorkey((0,0,0))
         self.rect = self.image.get_rect()
 
         """Current Direction of PacMan based on keyboard input"""
@@ -32,7 +33,6 @@ class PacMan(pygame.sprite.Sprite):
 
     def update(self):
         """Update PacMan's location based on Gamer Input"""
-        #remember to change pacman's image on each turn direction
         frame = 0
         if self.direction == 'right':
             image_to_load = os.path.join('Data', 'Images', 'pacmanright.png')
